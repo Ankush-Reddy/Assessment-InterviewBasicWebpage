@@ -100,7 +100,7 @@ All requested features have been implemented:
 No significant items remain unfinished. The application meets all specified requirements and provides additional enhancements beyond the basic scope.
 
 
-## 🛠 Development Sources & GenAI Assistance
+##  Development Sources & GenAI Assistance
 
 ### Resources Used
 - [Web.dev Microphone Tutorial](https://web.dev/patterns/media/microphone-process) - Core implementation
@@ -115,7 +115,7 @@ No significant items remain unfinished. The application meets all specified requ
   - React best practices guidance
 
 
-## 📄 Project Structure
+##  Project Structure
 
 ```
 ├── public/
