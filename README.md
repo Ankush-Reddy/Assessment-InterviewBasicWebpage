@@ -97,7 +97,7 @@ The application will open at `http://localhost:3000`
 - **3D Graphics**: WebGL with custom GLSL shaders
 - **Audio Processing**: Web Audio API
 - **Build Tool**: Create React App
-- **Audio Sources**: Chrome Music Lab sound files via CDN
+- **Audio Sources**: Chrome Music Lab sound files 
 
 ##  Assumptions Made
 
