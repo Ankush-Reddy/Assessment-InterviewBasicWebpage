@@ -736,9 +736,10 @@ const MicrophoneAudioApp = () => {
           {/* Visualization Area */}
           <div className="mx-auto mb-8" style={{ width: '900px', height: '550px' }}>
             <div 
-              className="relative w-full h-full border-8 rounded-lg overflow-hidden"
+              className="relative w-full h-full rounded-lg overflow-hidden"
               style={{ 
-                borderColor: '#A9BC43',
+                //borderColor: '#A9BC43',
+                border: "14px solid #A9BC43",
                 backgroundColor: isRecording ? '#DCC4A6' : '#000000'
               }}
             >
