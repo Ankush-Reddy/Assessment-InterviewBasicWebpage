@@ -747,15 +747,15 @@ const MicrophoneAudioApp = () => {
             <div 
               className="relative w-full h-full border-8 rounded-lg overflow-hidden"
               style={{ 
-                borderColor: '#9CB86F',
-                backgroundColor: isRecording ? '#D4B5A0' : '#000000'
+                borderColor: '#A9BC43',
+                backgroundColor: isRecording ? '#DCC4A6' : '#000000'
               }}
             >
               <canvas
                 ref={canvasRef}
                 className="w-full h-full"
                 style={{ 
-                  backgroundColor: isRecording ? '#D4B5A0' : '#000000'
+                  backgroundColor: isRecording ? '#DCC4A6' : '#000000'
                 }}
               />
               
