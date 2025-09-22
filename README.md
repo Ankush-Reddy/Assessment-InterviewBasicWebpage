@@ -17,9 +17,37 @@ git clone https://github.com/Ankush-Reddy/Assessment-InterviewBasicWebpage.git
 # Install dependencies
 npm install
 
-# Start the development server
-npm start
+# Install Tailwind dependencies (if not already configured)
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
 ```
+**Configure Tailwind CSS**
+   Update `tailwind.config.js`:
+   ```javascript
+   module.exports = {
+     content: [
+       "./src/**/*.{js,jsx,ts,tsx}",
+     ],
+     theme: {
+       extend: {},
+     },
+     plugins: [],
+   }
+   ```
+
+**Add Tailwind directives to CSS**
+   Create `src/index.css`:
+   ```css
+   @tailwind base;
+   @tailwind components;
+   @tailwind utilities;
+   ```
+
+**Start the development server**
+   ```bash
+   npm start
+   ```
 
 The application will open at `http://localhost:3000`
 
