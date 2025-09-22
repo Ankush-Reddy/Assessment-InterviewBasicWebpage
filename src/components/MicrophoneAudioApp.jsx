@@ -11,8 +11,15 @@ const MicrophoneAudioApp = () => {
   const visualizerRef = useRef(null);
   const playerRef = useRef(null);
 
-  // Add styles for wave animations
+  // Add Google Fonts and custom styles
   useEffect(() => {
+    // Add Google Fonts link
+    const fontLink = document.createElement('link');
+    fontLink.href = 'https://fonts.googleapis.com/css2?family=Metamorphous:wght@400&family=Lacquer:wght@400&display=swap';
+    fontLink.rel = 'stylesheet';
+    document.head.appendChild(fontLink);
+
+    // Add styles for wave animations
     const style = document.createElement('style');
     style.textContent = `
       @keyframes wave-float-1 {
@@ -75,10 +82,105 @@ const MicrophoneAudioApp = () => {
       .particle-3 { left: 50%; animation-delay: 1.2s; }
       .particle-4 { left: 75%; animation-delay: 1.8s; }
       .particle-5 { left: 90%; animation-delay: 2.4s; }
+
+      .custom-button {
+        position: relative;
+        width: 293px;
+        height: 93px;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+        margin: 0 auto;
+      }
+      
+      .custom-button:hover {
+        transform: translateY(-2px);
+      }
+      
+      .button-top {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 293px;
+        height: 93px;
+        background-color: #C3BADA;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        transition: transform 0.1s ease;
+      }
+      
+      .button-bottom {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 293px;
+        height: 93px;
+        background-color: #390040;
+        border-radius: 5px;
+        z-index: 1;
+      }
+      
+      .custom-button:active .button-top {
+        transform: translateY(4px);
+      }
+      
+      .custom-button:active .button-bottom {
+        transform: translateY(-2px);
+      }
+
+      .stop-button {
+        position: relative;
+        width: 293px;
+        height: 93px;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+        margin: 0 auto;
+      }
+      
+      .stop-button:hover {
+        transform: translateY(-2px);
+      }
+      
+      .stop-button-top {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 293px;
+        height: 93px;
+        background-color: #4EED59;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        transition: transform 0.1s ease;
+      }
+      
+      .stop-button-bottom {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 293px;
+        height: 93px;
+        background-color: #116617;
+        border-radius: 5px;
+        z-index: 1;
+      }
+      
+      .stop-button:active .stop-button-top {
+        transform: translateY(4px);
+      }
+      
+      .stop-button:active .stop-button-bottom {
+        transform: translateY(-2px);
+      }
     `;
     document.head.appendChild(style);
     
     return () => {
+      document.head.removeChild(fontLink);
       document.head.removeChild(style);
     };
   }, []);
@@ -628,7 +730,15 @@ const MicrophoneAudioApp = () => {
       <div className="container mx-auto px-8 py-12">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-3xl font-bold text-black mb-8">
+          <h1 
+            className="text-3xl font-bold mb-8"
+            style={{ 
+              fontFamily: 'Metamorphous, serif',
+              fontWeight: 400,
+              color: '#000000',
+              textAlign: 'center'
+            }}
+          >
             Welcome to the Interview Test Web Page
           </h1>
           
@@ -809,31 +919,78 @@ const MicrophoneAudioApp = () => {
           
           {/* Status Message - only show when recording */}
           {isRecording && (
-            <div className="mb-6">
-              <p className="text-lg font-semibold text-black">
-                YOUR MICROPHONE IS ON. YOU ARE NOW RECORDING!
+            <div className="mb-6 flex justify-center">
+              <p 
+                className="text-black"
+                style={{
+                  fontFamily: 'Lacquer, serif',
+                  fontWeight: 400,
+                  fontSize: '22px',
+                  textAlign: 'center',
+                  width: '633px',
+                  height: '43px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+              >
+                YOU'RE MICROPHONE IS ON. YOU ARE NOW RECORDING!
               </p>
             </div>
           )}
           
           {/* Control Button */}
-          <div>
+          <div className="flex justify-center">
             {!isRecording ? (
-              <button
+              <div 
+                className="custom-button" 
                 onClick={startRecording}
-                className="px-8 py-4 text-white font-bold text-lg rounded-lg border-4 border-purple-800 shadow-lg transform hover:scale-105 transition-transform"
-                style={{ backgroundColor: '#8B5FBF' }}
               >
-                CLICK HERE TO START RECORDING!
-              </button>
+                <div className="button-bottom"></div>
+                <div className="button-top">
+                  <span 
+                    style={{ 
+                      fontFamily: 'Lacquer',
+                      fontWeight: 400,
+                      color: '#000000',
+                      fontSize: '24px',
+                      textAlign: 'center',
+                      lineHeight: '1',
+                      letterSpacing: '0px'
+                      
+                    }}
+                  >
+                    CLICK HERE TO<br />START RECORDING!
+                  </span>
+                </div>
+              </div>
             ) : (
-              <button
+              <div 
+                className="stop-button" 
                 onClick={stopRecording}
-                className="px-8 py-4 text-white font-bold text-lg rounded-lg border-4 border-green-800 shadow-lg transform hover:scale-105 transition-transform"
-                style={{ backgroundColor: '#4CAF50' }}
               >
-                CLICK HERE TO STOP RECORDING
-              </button>
+                <div className="stop-button-bottom"></div>
+                <div className="stop-button-top">
+                  <span 
+                    style={{ 
+                      fontFamily: 'Lacquer',
+                      fontWeight: 400,
+                      color: '#000000',
+                      fontSize: '24px',
+                      textAlign: 'center',
+                      width: '212px',
+                      height: '43px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      lineHeight: '1',
+                      letterSpacing: '0px'
+                    }}
+                  >
+                    CLICK HERE TO STOP RECORDING.
+                  </span>
+                </div>
+              </div>
             )}
           </div>
         </div>
