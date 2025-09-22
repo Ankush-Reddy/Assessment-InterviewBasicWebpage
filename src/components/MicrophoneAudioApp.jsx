@@ -674,15 +674,6 @@ const MicrophoneAudioApp = () => {
     setSelectedInstrument(null);
     visualizerRef.current = null;
 
-    // Clear canvas
-    const canvas = canvasRef.current;
-    if (canvas) {
-      const ctx = canvas.getContext('2d');
-      if (ctx) {
-        ctx.fillStyle = '#000000';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-      }
-    }
   };
 
   // Visualization loop
@@ -747,7 +738,6 @@ const MicrophoneAudioApp = () => {
             <div 
               className="relative w-full h-full border-8 rounded-lg overflow-hidden"
               style={{ 
-                //border: '14px solid #A9BC43',
                 borderColor: '#A9BC43',
                 backgroundColor: isRecording ? '#DCC4A6' : '#000000'
               }}
@@ -1001,3 +991,4 @@ const MicrophoneAudioApp = () => {
 };
 
 export default MicrophoneAudioApp;
+
