@@ -90,6 +90,14 @@ The application will open at `http://localhost:3000`
 3. **Audio Processing**: Web Audio API integration following web.dev tutorial
 4. **State Management**: React hooks for clean state handling
 
+##  Technical Stack
+
+- **Frontend**: React 18 with Hooks
+- **Styling**: Tailwind CSS
+- **3D Graphics**: WebGL with custom GLSL shaders
+- **Audio Processing**: Web Audio API
+- **Build Tool**: Create React App
+- **Audio Sources**: Chrome Music Lab sound files via CDN
 
 ##  Assumptions Made
 
